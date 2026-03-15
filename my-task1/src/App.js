@@ -1,23 +1,31 @@
-import logo from "./logo.svg";
-import "./App.css";
+import styles from "./App.module.css";
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
+		<div className={styles.app}>
+			<h1 className={styles["page-heading"]}>Ввод значения</h1>
+			<p className={styles["no-margin-text"]}>
+				Текущее значение <code>value</code>: "
+				<output className={styles["current-value"]}></output>"
+			</p>
+			<div className={styles.error}>
+				Введенное значение должно содержать минимум 3 символа
+			</div>
+			<div className={styles["buttons-container"]}>
+				<button className={styles.button}>Ввести новое</button>
+				<button className={styles.button} disabled>
+					Добавить в список
+				</button>
+			</div>
+			<div className={styles["list-container"]}>
+				<h2 className={styles["list-heading"]}>Список:</h2>
+				<p className={styles["no-margin-text"]}>
+					Нет добавленных элементов
 				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+				<ul className={styles.list}>
+					<li className={styles["list-item"]}>Первый элемент</li>
+				</ul>
+			</div>
 		</div>
 	);
 }
